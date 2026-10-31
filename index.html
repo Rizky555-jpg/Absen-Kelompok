@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Absensi Kelompok Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <i class="fa-solid fa-fingerprint"></i>
+        <h1>Presensi<span>.</span></h1>
+      </div>
+      <div class="clock-pill glass">
+        <span id="clock">--:--:--</span> <span class="divider">|</span> <span id="date">--</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="panel glass">
+        <div class="panel-title">
+          <h2>Form Kehadiran</h2>
+          <p>Pastikan data yang diisi benar.</p>
+        </div>
+        
+        <form id="formAbsen">
+          <div class="form-group">
+            <label><i class="fa-brands fa-whatsapp"></i> Nomor WA Admin (Tujuan)</label>
+            <input type="number" id="waAdmin" placeholder="Contoh: 6281234567890" required value="6281234567890" />
+            <small style="color: #94a3b8; font-size: 11px; margin-top: 5px; display: block;">*Ganti angka dengan nomor WA kamu (pakai awalan 62).</small>
+          </div>
+
+          <div class="form-group">
+            <label>Nama Anggota</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-user"></i>
+              <select id="nama" required>
+                <option value="">Pilih Nama...</option>
+                <option value="Hafizah Nurhayani">Hafizah Nurhayani</option>
+                <option value="Zanjabila Sheren ramadhani">Zanjabila Sheren ramadhani</option>
+                <option value="Dimi Agnia Ningrum">Dimi Agnia Ningrum</option>
+                <option value="Muhamad Rizky Wijaya">Muhamad Rizky Wijaya</option>
+                <option value="Aura nurazizah">Aura nurazizah</option>
+                <option value="Devina putri">Devina putri</option>
+                <option value="Fatma novia">Fatma novia</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Keterangan</label>
+            <div class="radio-group">
+              <label class="radio-card">
+                <input type="radio" name="keterangan" value="Hadir" checked>
+                <div class="card-content"><i class="fa-solid fa-check-circle"></i> Hadir</div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="keterangan" value="Izin">
+                <div class="card-content"><i class="fa-solid fa-envelope"></i> Izin</div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="keterangan" value="Sakit">
+                <div class="card-content"><i class="fa-solid fa-thermometer"></i> Sakit</div>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Bukti Foto</label>
+            <div class="file-upload">
+              <input type="file" id="bukti" accept="image/*" capture="environment" required />
+              <div class="file-dummy glass-inner">
+                <i class="fa-solid fa-camera-retro"></i>
+                <span>Ambil / Pilih Foto</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="preview" class="preview-box"></div>
+
+          <button type="submit" id="btnSubmit" class="btn-primary">
+            <span>Kirim & Ke WhatsApp</span> <i class="fa-brands fa-whatsapp"></i>
+          </button>
+        </form>
+      </section>
+
+      <section class="panel glass">
+        <div class="panel-title flex-between">
+          <h2>Riwayat</h2>
+          <div class="badge" id="total">0</div>
+        </div>
+
+        <div class="search glass-inner">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="search" placeholder="Cari nama..." />
+        </div>
+
+        <div id="dataAbsen" class="list"></div>
+      </section>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+  </html>
